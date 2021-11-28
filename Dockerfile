@@ -1,9 +1,5 @@
-FROM centos:7
+FROM ogre0403/latex:basic-collection
 
-RUN yum update -y; yum install graphviz curl  which epel-release  -y ; yum install jq -y
+RUN apk update && apk --no-cache add perl wget && tlmgr install algorithm2e
 
-RUN mkdir /tmp/ocp
 
-ADD ocp4-upgrade-checker.sh /tmp/ocp 
-
-CMD ["date"]
